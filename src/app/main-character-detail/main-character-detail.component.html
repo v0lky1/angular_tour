@@ -1,0 +1,27 @@
+<div *ngIf="mainCharacter">
+  <h2>
+    <span *ngIf="mainCharacter?.firstName">
+      {{ mainCharacter?.firstName | uppercase }}</span
+    >
+    <span *ngIf="mainCharacter?.lastName">
+      {{ mainCharacter?.lastName | uppercase }}</span
+    >
+    Details
+  </h2>
+  <div><span>id: </span>{{ mainCharacter?.id }}</div>
+  <div>
+    <label for="main-character-name">Main Character name: </label>
+    <input
+      id="main-character-firstname"
+      [(ngModel)]="mainCharacter.firstName"
+      placeholder="first name"
+    />
+    <input
+      placeholder="last name"
+      id="main-character-lastname"
+      [(ngModel)]="mainCharacter.lastName"
+    />
+  </div>
+</div>
+<button (click)="save()">save</button>
+<button (click)="goBack()">go back</button>

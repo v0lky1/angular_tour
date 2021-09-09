@@ -1,0 +1,37 @@
+<h2>Main Characters of WoW</h2>
+
+<div>
+  <label for="new-main-character">Main Character name: </label>
+  <input id="new-main-character" #MainCharacterFirstName />
+  <input id="new-main-character" #MainCharacterLastName />
+
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button
+    class="add-button"
+    (click)="
+      add(MainCharacterFirstName.value, MainCharacterLastName.value);
+      (MainCharacterFirstName.value = '') + (MainCharacterLastName.value = '')
+    "
+  >
+    Add Main Character
+  </button>
+</div>
+
+<ul class="mainCharacters">
+  <li *ngFor="let mainCharacter of mainCharacters">
+    <a routerLink="/detail/{{ mainCharacter.id }}">
+      <span class="badge">{{ mainCharacter.id }}</span>
+      <span *ngIf="mainCharacter?.firstName">
+        {{ mainCharacter.firstName }}</span
+      >
+      <span *ngIf="mainCharacter?.lastName"> {{ mainCharacter.lastName }}</span>
+    </a>
+    <button
+      class="delete"
+      title="delete main character"
+      (click)="delete(mainCharacter)"
+    >
+      x
+    </button>
+  </li>
+</ul>

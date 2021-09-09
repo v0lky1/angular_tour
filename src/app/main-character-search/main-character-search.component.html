@@ -1,0 +1,12 @@
+<div id="search-component">
+  <label for="search-box">Main Character Search</label>
+  <input #searchBox id="search-box" (input)="search(searchBox.value)" />
+
+  <ul class="search-result">
+    <li *ngFor="let mainCharacter of mainCharacters$ | async">
+      <a routerLink="/detail/{{ mainCharacter.id }}">
+        {{ mainCharacter.firstName }}
+      </a>
+    </li>
+  </ul>
+</div>

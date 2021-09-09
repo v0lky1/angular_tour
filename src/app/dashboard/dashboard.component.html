@@ -1,0 +1,13 @@
+<h2>The best Main Characters</h2>
+<div class="main-character-menu">
+  <a
+    *ngFor="let mainCharacter of mainCharacters"
+    routerLink="/detail/{{ mainCharacter.id }}"
+  >
+    <span *ngIf="mainCharacter?.firstName">{{ mainCharacter.firstName }}</span>
+    <span *ngIf="mainCharacter?.lastName">{{
+      " " + mainCharacter.lastName
+    }}</span>
+  </a>
+</div>
+<app-main-character-search></app-main-character-search>
